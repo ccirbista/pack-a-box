@@ -91,7 +91,10 @@ class ProductController extends Controller
     public static function findBox(Product $product)
     {
         
-        $requiredBox = Box::where('length', '>', $product->length)->where('width', '>', $product->width)->where('height', '>', $product->height)->get();
+        $requiredBox = Box::where('length', '>', $product->length)
+        ->where('width', '>', $product->width)
+        ->where('height', '>', $product->height)
+        ->get();
         
         return view('packingBox', [
             'boxType' => $requiredBox,

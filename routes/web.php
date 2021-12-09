@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
+use App\Models\Box;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,29 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/find-box/{product}', 'ProductController@findBox');
+Route::get('/products', function () {
+    return view('products', [
+        "products" => Product::all(),
+    ]);
+});
+
+Route::get('/products/{product:name}', function (Product $product) {
+    return view('product', [
+        "product" => $product,
+    ]);
+});
+
+Route::get('/boxes', function () {
+    return view('boxes', [
+        "boxes" => Box::all(),
+    ]);
+});
+
+Route::get('/boxes/{box:name}', function (Box $box) {
+    return view('box', [
+        "box" => $box,
+    ]);
+});

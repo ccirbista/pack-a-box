@@ -20,6 +20,7 @@ class Product extends Model
      *  box
      *
     */
+
     public function box()
     {
         $this->belongsTo(Box::class);

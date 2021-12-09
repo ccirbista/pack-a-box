@@ -88,11 +88,16 @@ class ProductController extends Controller
      * Compare THE box class attributes with product class
      * @return null
      */
-    public function findBox(Product $product)
+    public static function findBox(Product $product)
     {
-        $requiredBox = Box::where('length', '>=', $product->length)
-        ->where('width', '>=', $product->width)
-        ->where('height', '>=', $product->height);
-        return Response()->json(['box' => $requiredBox]);
+        
+        $requiredBox = Box::where('length', '>', $product->length)->where('width', '>', $product->width)->where('height', '>', $product->height)->get();
+        
+        return view('packingBox', [
+            'boxType' => $requiredBox,
+            
+        ]);
+
+        
     }
 }

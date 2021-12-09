@@ -43,3 +43,5 @@ Route::get('/boxes/{box:name}', function (Box $box) {
         "box" => $box,
     ]);
 });
+
+Route::get('/products/{product:name}/findBox', [ProductController::class, 'findBox']);

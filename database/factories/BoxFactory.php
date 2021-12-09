@@ -17,7 +17,7 @@ class BoxFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'name' => $this->faker->colorName(),
             'length'=> $this->faker->randomFloat(1, 10, 30),
             'width'=> $this->faker->randomFloat(1, 10, 30),
             'height'=> $this->faker->randomFloat(1, 10, 30),

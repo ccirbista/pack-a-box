@@ -36,7 +36,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $boxedItem = $request->get('boxed_item');
+        
+        return view('multiple', [
+            'boxType' => $boxedItem,
+        ]);
     }
 
     /**
